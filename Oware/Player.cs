@@ -4,14 +4,15 @@ namespace Oware {
     public class Player {
         // sets or returns the name of the player
         private string name;
-        private ScoreHouse scoreHouse; // player's scorehouse
+        private IScoreHouse scoreHouse; // player's scorehouse
         private bool isPlayersTurn; // is true when it is player's turn
 
         // create Player with a name and initialized (empty) score house
-        public Player(string name) {
+        public Player(string name , IScoreHouse s) {
+            this.scoreHouse = s;
             this.name = name;
             isPlayersTurn = false;
-            scoreHouse = new ScoreHouse();
+            //scoreHouse = new IScoreHouse();
         }
 
         public string GetName() {
@@ -22,7 +23,7 @@ namespace Oware {
             this.name = name;
         }
 
-        public ScoreHouse GetScoreHouse() {
+        public IScoreHouse GetScoreHouse() {
             return scoreHouse;
         }
 
